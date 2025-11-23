@@ -290,4 +290,4 @@ For issues or questions:
 
 ---
 
-Built with ❤️ using Lovable, React, and Google Gemini
+Built with React, and Google Gemini
