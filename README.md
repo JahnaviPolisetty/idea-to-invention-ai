@@ -1,7 +1,7 @@
 # Idea-to-Invention AI
 
-## Link: https://idea-to-invention-ai.vercel.app/
-## Demo video : https://youtu.be/pOOXZ905tsE?si=q6ffEHR2DW2vvLcp
+### Link: https://idea-to-invention-ai.vercel.app/
+### Demo video : https://youtu.be/pOOXZ905tsE?si=q6ffEHR2DW2vvLcp
 ## Problem Statement
 
 Inventors and innovators face a significant challenge when trying to transform raw ideas into structured, comprehensive invention documentation. The process typically requires:
