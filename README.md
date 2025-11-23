@@ -164,7 +164,7 @@ Structured Blueprint Output
                   │
                   ↓
 ┌─────────────────────────────────────────┐
-│      Lovable AI Gateway (Gemini)        │
+│       AI Gateway (Gemini)        │
 │  - Pre-configured authentication        │
 │  - Rate limiting                        │
 │  - Usage tracking                       │
