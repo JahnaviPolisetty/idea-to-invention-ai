@@ -103,7 +103,6 @@ The system consists of 6 specialized agents that run sequentially:
 ## Tools & Models Used
 
 ### AI Gateway
-- **Lovable AI Gateway**: https://ai.gateway.lovable.dev/v1/chat/completions
 - **Model**: google/gemini-2.5-flash
 - **Benefits**: Pre-configured, no API key management, usage-based pricing
 
@@ -118,57 +117,6 @@ The system consists of 6 specialized agents that run sequentially:
 - Supabase Edge Functions (Deno runtime)
 - CORS-enabled for web access
 - Automatic deployment
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ and npm
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <YOUR_GIT_URL>
-cd <YOUR_PROJECT_NAME>
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-4. Open your browser to `http://localhost:8080`
-
-### Usage
-
-1. Enter your invention idea in the text area
-2. Click "Generate Invention Blueprint"
-3. Watch the agent timeline as each agent processes
-4. View the comprehensive results in expandable sections
-5. Access previous blueprints from the history sidebar
-
-## Deployment
-
-### Deploy to Lovable (Recommended)
-
-1. Push your code to the connected repository
-2. Go to your Lovable project
-3. Click "Publish" in the top-right corner
-4. Your app will be live at `yourproject.lovable.app`
-
-### Deploy to Vercel
-
-1. Connect your GitHub repository to Vercel
-2. Configure build settings:
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-3. Add environment variables (if needed)
-4. Deploy
 
 ## Architecture Diagrams
 
@@ -284,9 +232,8 @@ MIT License - feel free to use and modify
 ## Support
 
 For issues or questions:
-- GitHub Issues: [your-repo/issues]
-- Email: [your-email]
-- Discord: [your-discord]
+- Email: jahnavi2645@gmail.com
+
 
 ---
 
