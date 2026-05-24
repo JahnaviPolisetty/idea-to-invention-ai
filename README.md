@@ -1,147 +1,75 @@
-# Idea-to-Invention AI
+# Idea-to-Invention Pipeline
 
-### Link: https://idea-to-invention-ai.vercel.app/
-### Demo video : https://youtu.be/pOOXZ905tsE?si=q6ffEHR2DW2vvLcp
-## Problem Statement
+A sophisticated multi-agent LLM pipeline that automates the transformation of raw invention concepts into structured, patent-ready technical blueprints. This project showcases advanced software engineering practices, Deno serverless architecture, and multi-agent AI orchestration.
 
-Inventors and innovators face a significant challenge when trying to transform raw ideas into structured, comprehensive invention documentation. The process typically requires:
+---
 
-- Deep technical knowledge across multiple domains
-- Extensive research into prior art and existing solutions
-- Feasibility analysis and technical evaluation
-- Strategic innovation thinking
-- Professional patent-style documentation skills
+## 🚀 Live Demo & Presentation
+* **Deployed Application:** [idea-to-invention-ai.vercel.app](https://idea-to-invention-ai.vercel.app/)
+* **Project Walkthrough:** [YouTube Demo Video](https://youtu.be/pOOXZ905tsE?si=q6ffEHR2DW2vvLcp)
 
-This creates a high barrier to entry for individual inventors and delays the innovation process for organizations.
+---
 
-## Solution
+## 💡 The Problem
+Turning a raw invention idea into structured, professional patent documentation is a high-friction process. It typically requires:
+* Deep domain expertise across specialized technical disciplines.
+* Extensive manual prior-art search and literature review.
+* Comprehensive technical feasibility and risk assessment.
+* Precise patent-style drafting capabilities.
 
-**Idea-to-Invention AI** is a multi-agent LLM-powered system that automates the entire invention blueprint creation process. The system takes a raw invention idea as input and produces a comprehensive, structured document that includes:
+This barrier slows down individual innovators and creates high administrative overhead for organizations evaluating new ideas.
 
-- Problem analysis and articulation
-- Research into similar ideas and prior art
-- Technical feasibility assessment
-- Innovation opportunities and differentiation strategies
-- Complete patent-style technical writeup
+---
 
-## Why Multi-Agent Architecture?
+## 🛠️ The Solution: Multi-Agent Orchestration
+The **Idea-to-Invention Pipeline** automates this workflow using a **modular, multi-agent pipeline** powered by Google Gemini. Instead of querying a single model with a monolithic prompt, the system routes the idea through six specialized agents. Each agent builds sequentially on the outputs of the previous stages, ensuring superior depth, technical accuracy, and structured outputs.
 
-The multi-agent approach provides several key advantages:
-
-1. **Specialization**: Each agent focuses on a specific aspect (problem analysis, research, feasibility, etc.), resulting in higher quality outputs than a single general-purpose prompt
-2. **Sequential Context Building**: Each agent builds upon the work of previous agents, creating a comprehensive analysis
-3. **Transparency**: Users can see exactly which agent is working and track progress through the pipeline
-4. **Maintainability**: Individual agent prompts can be updated or improved independently
-5. **Scalability**: New agents can be added to the pipeline without disrupting existing functionality
-
-## System Architecture
-
-### Agent Pipeline
-
-The system consists of 6 specialized agents that run sequentially:
-
-1. **Idea Intake Agent**
-   - Extracts title and summary from raw idea
-   - Cleanses and structures the initial input
-
-2. **Problem Analysis Agent**
-   - Identifies the core problem being solved
-   - Determines affected stakeholders
-   - Analyzes gaps in existing solutions
-
-3. **Research Agent**
-   - Finds similar existing solutions
-   - Documents prior art and patents
-   - Identifies competitive landscape
-
-4. **Feasibility Agent**
-   - Evaluates technical requirements
-   - Assesses resource needs
-   - Analyzes risks and challenges
-
-5. **Innovation Agent**
-   - Proposes differentiating features
-   - Identifies unique value propositions
-   - Suggests breakthrough opportunities
-
-6. **Patent Writer Agent**
-   - Compiles all analyses into formal document
-   - Structures content in patent-style format
-   - Creates comprehensive technical writeup
-
-### Technology Stack
-
-**Frontend:**
-- React + TypeScript
-- Vite for build tooling
-- Tailwind CSS for styling
-- Custom design system with glass morphism effects
-
-**Backend:**
-- Lovable Cloud (Supabase)
-- Edge Functions for serverless agent execution
-- Lovable AI Gateway for LLM access
-
-**AI Models:**
-- Google Gemini 2.5 Flash (default)
-- Accessed via Lovable AI Gateway
-- No API keys required from users
-
-**State Management:**
-- React hooks for UI state
-- localStorage for session persistence
-- Real-time progress tracking
-
-### Key Features
-
-- **Zero-Scroll Pipeline**: UI stays in view during execution
-- **Animated Timeline**: Visual progress through agent stages
-- **Session Memory**: History stored in browser localStorage
-- **Glass Morphism UI**: Modern dark theme with gradient effects
-- **Expandable Results**: Collapsible sections for each output category
-- **Error Handling**: Graceful fallbacks and error messages
-- **Performance Monitoring**: Execution time tracking per agent
-
-## Tools & Models Used
-
-### AI Gateway
-- **Model**: google/gemini-2.5-flash
-- **Benefits**: Pre-configured, no API key management, usage-based pricing
-
-### Frontend Libraries
-- React 18.3.1
-- TypeScript
-- Tailwind CSS
-- Radix UI components (shadcn/ui)
-- Lucide React icons
-
-### Backend Infrastructure
-- Supabase Edge Functions (Deno runtime)
-- CORS-enabled for web access
-- Automatic deployment
-
-## Architecture Diagrams
-
-### Agent Pipeline Flow
+### Sequential Multi-Agent Flow
 ```
-User Input
-    ↓
-Idea Intake Agent (extract title/summary)
-    ↓
-Problem Agent (identify problem)
-    ↓
-Research Agent (find similar solutions)
-    ↓
-Feasibility Agent (evaluate practicality)
-    ↓
-Innovation Agent (propose differentiators)
-    ↓
-Patent Writer Agent (compile final document)
-    ↓
-Structured Blueprint Output
+       [ Raw Invention Idea ]
+                 │
+                 ▼
+      1. Idea Intake Agent        ──► Cleanses and titles the concept
+                 │
+                 ▼
+      2. Problem Analysis Agent   ──► Articulates pain points & target audience
+                 │
+                 ▼
+      3. Prior Art Research Agent ──► Analyzes similar ideas & limitations
+                 │
+                 ▼
+      4. Feasibility Agent        ──► Evaluates engineering & resource requirements
+                 │
+                 ▼
+      5. Innovation Agent         ──► Identifies unique differentiators
+                 │
+                 ▼
+      6. Patent Writer Agent      ──► Compiles a structured, patent-ready blueprint
+                 │
+                 ▼
+     [ Structured Blueprint Output ]
 ```
 
-### System Components
+---
+
+## 🖥️ Technology Stack
+
+### Frontend
+* **Core:** React 18 & TypeScript
+* **Styling:** Tailwind CSS & Radix UI (shadcn/ui layout tokens)
+* **Build Tool:** Vite
+* **State & Querying:** TanStack React Query & browser local storage for history persistence
+* **Design Theme:** Handcrafted dark slate dashboard featuring clean glassmorphism styling and custom tech badges
+
+### Backend & AI
+* **Serverless Backend:** Supabase Edge Functions (Deno Runtime)
+* **LLM Engine:** Google Gemini 2.5 Flash / Gemini API Integration
+* **API Routing:** Secure server-to-server connection via Supabase Edge Function to prevent exposing API keys to the client
+
+---
+
+## 📦 System Architecture
+
 ```
 ┌─────────────────────────────────────────┐
 │           Frontend (React)              │
@@ -152,91 +80,96 @@ Structured Blueprint Output
 │  │  HistorySidebar Component       │   │
 │  └─────────────────────────────────┘   │
 └─────────────────┬───────────────────────┘
-                  │
-                  ↓
+                  │ Secure HTTPS CORS
+                  ▼
 ┌─────────────────────────────────────────┐
 │   Backend (Supabase Edge Functions)     │
 │  ┌─────────────────────────────────┐   │
 │  │  invention-pipeline function    │   │
-│  │    - Agent orchestration        │   │
-│  │    - Context management         │   │
-│  │    - Error handling             │   │
+│  │    - Sequential orchestration   │   │
+│  │    - Context memory management  │   │
+│  │    - Structured JSON fallbacks  │   │
 │  └─────────────────────────────────┘   │
 └─────────────────┬───────────────────────┘
-                  │
-                  ↓
+                  │ Deno standard HTTPS
+                  ▼
 ┌─────────────────────────────────────────┐
-│       AI Gateway (Gemini)        │
-│  - Pre-configured authentication        │
-│  - Rate limiting                        │
-│  - Usage tracking                       │
+│        Google Gemini API Service        │
+│  - Multi-agent prompt execution         │
+│  - System-level instruction sets        │
 └─────────────────────────────────────────┘
 ```
 
-## Future Improvements
+---
 
-1. **Enhanced Research**
-   - Integrate real patent database APIs
-   - Add web search for prior art
-   - Include academic paper search
-
-2. **Collaboration Features**
-   - Share blueprints with team members
-   - Comment and feedback system
-   - Version history tracking
-
-3. **Export Options**
-   - PDF generation
-   - Word document export
-   - Direct patent office filing format
-
-4. **Advanced Analysis**
-   - Market size estimation
-   - Competitor analysis
-   - Cost-benefit analysis
-   - Timeline projections
-
-5. **AI Enhancements**
-   - Model selection options
-   - Fine-tuned agents for specific domains
-   - Multi-language support
-
-6. **UI/UX Improvements**
-   - Drag-and-drop reordering
-   - Custom agent configurations
-   - Real-time collaboration
-   - Mobile app version
-
-## Value Provided
-
-### For Individual Inventors
-- **Time Savings**: Reduces blueprint creation from days to minutes
-- **Professional Quality**: Patent-style documentation without legal expertise
-- **Comprehensive Analysis**: Multiple perspectives in one go
-- **Accessible**: No technical barriers or API key management
-
-### For Organizations
-- **Rapid Prototyping**: Quickly evaluate multiple ideas
-- **Standardized Documentation**: Consistent format across teams
-- **Prior Art Discovery**: Avoid reinventing existing solutions
-- **Innovation Pipeline**: Track and manage multiple invention concepts
-
-### For Innovation Teams
-- **Collaborative**: Share and refine blueprints
-- **Educational**: Learn from agent analysis
-- **Scalable**: Process multiple ideas concurrently
-- **Traceable**: Full history and progression tracking
-
-## License
-
-MIT License - feel free to use and modify
-
-## Support
-
-For issues or questions:
-- Email: jahnavi2645@gmail.com
-
+## 📂 Project Structure
+```
+├── src/
+│   ├── components/       # Reusable UI dashboard elements
+│   │   ├── ui/           # Headless shadcn base design tokens
+│   │   ├── IdeaInput.tsx # Invention concept capture
+│   │   ├── AgentTimeline.tsx # Visual execution timeline
+│   │   └── BlueprintResults.tsx # Tabbed patent documentation details
+│   ├── integrations/     # Supabase client declarations
+│   ├── lib/              # Client state, types, and LocalStorage keys
+│   └── pages/            # Core Index.tsx dashboard viewport
+├── supabase/
+│   └── functions/
+│       └── invention-pipeline/ # Deno Edge Function script orchestrating Gemini Agents
+├── tailwind.config.ts    # Extended style framework definitions
+└── vite.config.ts        # Bundler optimization setups
+```
 
 ---
 
-Built with React, and Google Gemini
+## ⚙️ Local Development Setup
+
+Follow these steps to run the pipeline dashboard and backend functions locally.
+
+### Prerequisites
+* **Node.js:** v18.x or later installed
+* **Supabase CLI:** Installed (if deploying Edge Functions)
+
+### 1. Clone & Install Dependencies
+```bash
+git clone https://github.com/JahnaviPolisetty/idea-to-invention-ai.git
+cd idea-to-invention-ai
+npm install
+```
+
+### 2. Configure Environment Variables
+Create a `.env` file in the root directory and add your Supabase project parameters:
+```env
+VITE_SUPABASE_URL="https://your-project-id.supabase.co"
+VITE_SUPABASE_PUBLISHABLE_KEY="your-anon-key"
+```
+
+### 3. Run the Frontend Dashboard
+Start the local Vite development server:
+```bash
+npm run dev
+```
+Open your browser and navigate to `http://localhost:8080` to interact with the dashboard.
+
+### 4. Deploying Backend Edge Functions
+If you want to run the serverless backend function on your own Supabase instance:
+```bash
+# Login to Supabase CLI
+supabase login
+
+# Deploy the pipeline edge function
+supabase functions deploy invention-pipeline --project-ref your-project-id
+
+# Set your Gemini API key in the deployed function env
+supabase secrets set GEMINI_API_KEY="your-gemini-api-key" --project-ref your-project-id
+```
+
+---
+
+## 👨‍💻 Author
+* **Jahnavi Polisetty** - [GitHub](https://github.com/JahnaviPolisetty) | [Email](mailto:jahnavi2645@gmail.com)
+
+---
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
