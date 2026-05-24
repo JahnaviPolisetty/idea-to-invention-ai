@@ -63,8 +63,8 @@ export const BlueprintResults = ({ blueprint }: BlueprintResultsProps) => {
   return (
     <div className="space-y-6 animate-slide-in">
       {/* Header */}
-      <div className="glass-strong rounded-2xl p-8 glow-primary">
-        <h2 className="text-3xl font-bold mb-3 text-glow">{blueprint.title}</h2>
+      <div className="glass-strong rounded-2xl p-8 border border-primary/20">
+        <h2 className="text-3xl font-bold mb-3 text-primary">{blueprint.title}</h2>
         <p className="text-lg text-foreground/90">{blueprint.summary}</p>
       </div>
 

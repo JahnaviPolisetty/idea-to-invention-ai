@@ -2,59 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Definition of the design system. 
+   A professional engineering portfolio design system with clean slate, indigo, and emerald colors.
 */
 
 @layer base {
   :root {
-    --background: 220 26% 6%;
-    --foreground: 180 100% 98%;
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
 
-    --card: 220 24% 10%;
-    --card-foreground: 180 100% 98%;
+    --card: 222 47% 7%;
+    --card-foreground: 213 31% 91%;
 
-    --popover: 220 24% 10%;
-    --popover-foreground: 180 100% 98%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 213 31% 91%;
 
-    --primary: 184 100% 50%;
-    --primary-foreground: 220 26% 6%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 270 60% 50%;
-    --secondary-foreground: 180 100% 98%;
+    --secondary: 153 60% 45%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 20% 15%;
-    --muted-foreground: 180 20% 60%;
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 290 80% 60%;
-    --accent-foreground: 180 100% 98%;
+    --accent: 263 70% 50%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 180 100% 98%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 18%;
-    --ring: 184 100% 50%;
+    --border: 217 19% 14%;
+    --input: 217 19% 14%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
     /* Glass effect colors */
-    --glass-bg: 220 24% 10%;
-    --glass-border: 184 100% 50%;
+    --glass-bg: 222 47% 6%;
+    --glass-border: 217 19% 20%;
     
     /* Gradient colors */
-    --gradient-start: 184 100% 50%;
-    --gradient-mid: 270 60% 50%;
-    --gradient-end: 290 80% 60%;
+    --gradient-start: 217 91% 60%;
+    --gradient-mid: 153 60% 45%;
+    --gradient-end: 263 70% 50%;
     
-    /* Glow effects */
-    --glow-primary: 184 100% 50%;
-    --glow-secondary: 270 60% 50%;
+    /* Glow effects - turned down for a professional look */
+    --glow-primary: 217 91% 60%;
+    --glow-secondary: 153 60% 45%;
     
     /* Timeline colors */
-    --timeline-pending: 220 20% 30%;
-    --timeline-active: 184 100% 50%;
-    --timeline-complete: 270 60% 50%;
+    --timeline-pending: 217 19% 20%;
+    --timeline-active: 217 91% 60%;
+    --timeline-complete: 153 60% 45%;
   }
 }
 
@@ -70,17 +70,17 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Glass morphism effect */
+  /* Glass morphism effect with professional subtle styling */
   .glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(100, 255, 218, 0.2);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
   
   .glass-strong {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(30px);
-    border: 1px solid rgba(100, 255, 218, 0.3);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
   
   /* Gradient backgrounds */
@@ -96,27 +96,27 @@ All colors MUST be HSL.
     background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-mid)), hsl(var(--gradient-end)));
   }
   
-  /* Glow effects */
+  /* Glow effects - redesigned to be elegant shadows rather than neon flares */
   .glow-primary {
-    box-shadow: 0 0 20px rgba(100, 255, 218, 0.3), 0 0 40px rgba(100, 255, 218, 0.1);
+    box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2), 0 1px 1px 0 rgba(59, 130, 246, 0.1);
   }
   
   .glow-secondary {
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.3), 0 0 40px rgba(138, 43, 226, 0.1);
+    box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2), 0 1px 1px 0 rgba(16, 185, 129, 0.1);
   }
   
-  /* Text glow */
+  /* Text glow - refined to be subtle headers */
   .text-glow {
-    text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
   }
   
   /* Animations */
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
     }
     50% {
-      box-shadow: 0 0 30px rgba(100, 255, 218, 0.6);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
     }
   }
   
@@ -127,7 +127,7 @@ All colors MUST be HSL.
   @keyframes slide-in {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(12px);
     }
     to {
       opacity: 1;
@@ -136,7 +136,7 @@ All colors MUST be HSL.
   }
   
   .animate-slide-in {
-    animation: slide-in 0.4s ease-out;
+    animation: slide-in 0.3s ease-out;
   }
   
   @keyframes gradient-shift {
@@ -150,6 +150,6 @@ All colors MUST be HSL.
   
   .animate-gradient {
     background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
+    animation: gradient-shift 4s ease infinite;
   }
 }

@@ -19,23 +19,23 @@ export const AgentTimeline = ({ steps }: AgentTimelineProps) => {
             {/* Icon */}
             <div className="mt-1 flex-shrink-0">
               {step.status === "complete" && (
-                <div className="w-8 h-8 rounded-full bg-timeline-complete glow-secondary flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
                   <Check className="w-5 h-5 text-white" />
                 </div>
               )}
               {step.status === "active" && (
-                <div className="w-8 h-8 rounded-full bg-timeline-active glow-primary flex items-center justify-center animate-pulse-glow">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
                   <Loader2 className="w-5 h-5 text-white animate-spin" />
                 </div>
               )}
               {step.status === "pending" && (
-                <div className="w-8 h-8 rounded-full bg-timeline-pending border-2 border-border flex items-center justify-center">
-                  <Circle className="w-4 h-4 text-muted-foreground" />
+                <div className="w-8 h-8 rounded-full bg-timeline-pending border border-border flex items-center justify-center">
+                  <Circle className="w-3 h-3 text-muted-foreground" />
                 </div>
               )}
               {step.status === "error" && (
                 <div className="w-8 h-8 rounded-full bg-destructive flex items-center justify-center">
-                  <span className="text-white text-lg">!</span>
+                  <span className="text-white text-lg font-bold">!</span>
                 </div>
               )}
             </div>

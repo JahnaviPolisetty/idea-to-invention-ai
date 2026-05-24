@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Sparkles } from "lucide-react";
+import { Lightbulb, Cpu } from "lucide-react";
 
 interface IdeaInputProps {
   onSubmit: (idea: string) => void;
@@ -20,8 +20,8 @@ export const IdeaInput = ({ onSubmit, isLoading }: IdeaInputProps) => {
   return (
     <div className="glass rounded-2xl p-8 animate-slide-in">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 rounded-xl gradient-primary glow-primary">
-          <Sparkles className="w-6 h-6 text-white" />
+        <div className="p-3 rounded-xl bg-primary text-white">
+          <Lightbulb className="w-6 h-6" />
         </div>
         <div>
           <h2 className="text-2xl font-bold text-glow">Your Invention Idea</h2>
@@ -40,7 +40,7 @@ export const IdeaInput = ({ onSubmit, isLoading }: IdeaInputProps) => {
       <Button
         onClick={handleSubmit}
         disabled={!idea.trim() || isLoading}
-        className="w-full gradient-primary hover:opacity-90 text-white font-semibold py-6 text-lg glow-primary disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
       >
         {isLoading ? (
           <>
@@ -49,7 +49,7 @@ export const IdeaInput = ({ onSubmit, isLoading }: IdeaInputProps) => {
           </>
         ) : (
           <>
-            <Sparkles className="mr-2" />
+            <Cpu className="w-5 h-5 mr-2" />
             Generate Invention Blueprint
           </>
         )}
