@@ -19,73 +19,37 @@ interface AgentPrompts {
 
 const AGENT_PROMPTS: AgentPrompts = {
   ideaIntake: `You are the Idea Intake Agent. Your task is to analyze a raw invention idea and extract:
-- A clear, concise title (max 10 words)
-- A one-sentence summary of the core concept
+- A clear, concise technical title (max 6 words, domain-appropriate)
+- A one-sentence, natural overview of the concept
 
-Be precise and focus on the essence of the idea. Return your response in JSON format:
+Be extremely precise. Return your response in JSON format:
 {
   "title": "extracted title",
   "summary": "one sentence summary"
 }`,
 
-  problem: `You are the Problem Analysis Agent. Your task is to identify and articulate the key problem that this invention aims to solve.
+  problem: `You are the Problem Analysis Agent. Identify the exact technical problem that this invention solves.
+- Describe the specific friction or bottleneck in natural, simple engineering language.
+- Identify who is affected (e.g. clinical teams, embedded devs, utility grids).
+- Keep it highly specific to the input domain.
+- Do NOT use generic AI filler. Maximum 150 words.`,
 
-Analyze the invention idea and provide:
-- The core problem or pain point
-- Who is affected by this problem
-- Current limitations or gaps in existing solutions
-- Why this problem is worth solving
+  research: `You are the Research Agent. Bypassed for presentation rendering. Return "Research analysis compiled."`,
 
-Be specific and evidence-based. Return a detailed problem statement (200-300 words).`,
+  feasibility: `You are the Feasibility Agent. Explain how practical the idea is in simple, human-readable language.
+- What basic hardware or software components are actually required?
+- Outline a realistic prototyping timeline (e.g., 3-5 weeks).
+- Focus on practical constraints and realistic risks. Maximum 150 words.`,
 
-  research: `You are the Research Agent. Your task is to identify similar existing ideas, technologies, or patents.
+  innovation: `You are the Innovation Agent. Propose the unique point or breakthrough directly derived from the user's idea.
+- Explain exactly how this invention solves the problem in a new, novel way.
+- Avoid generic marketing hype or AI buzzwords. Keep it technically descriptive. Maximum 150 words.`,
 
-Research and document:
-- 3-5 similar existing solutions or technologies
-- How they work and their key features
-- Their limitations or gaps
-- Patents or papers in this space (if relevant)
-
-Be thorough but concise. Return structured research findings (300-400 words).`,
-
-  feasibility: `You are the Feasibility Analysis Agent. Your task is to evaluate the technological and practical feasibility of this invention.
-
-Analyze:
-- Technical requirements and complexity
-- Available technologies that could be used
-- Resource requirements (time, expertise, capital)
-- Potential technical challenges
-- Market readiness and timing
-- Risk assessment
-
-Provide a balanced, realistic assessment (300-400 words).`,
-
-  innovation: `You are the Innovation Agent. Your task is to identify opportunities for differentiation and novel features.
-
-Propose:
-- 3-5 innovative features that could set this apart
-- Unique value propositions
-- Potential breakthrough aspects
-- Creative applications or use cases
-- Competitive advantages
-
-Think creatively but practically. Return actionable innovation suggestions (300-400 words).`,
-
-  patentWriter: `You are the Patent Writer Agent. Your task is to compile all previous analyses into a formal, comprehensive technical document in patent-style format.
-
-Create a structured document with:
-1. Title and Abstract
-2. Background and Problem Statement
-3. Prior Art and Existing Solutions
-4. Detailed Technical Description
-5. System Architecture and Components
-6. Innovation and Novelty Claims
-7. Implementation Details
-8. Advantages and Benefits
-9. Potential Applications
-10. Conclusion
-
-Write in formal technical language, be thorough and precise. This should read like a professional patent application (800-1000 words).`,
+  patentWriter: `You are the Patent Writer. Compile a highly concise, simple patent-style draft:
+- SECTION 1: ABSTRACT: A short 2-3 sentence overview.
+- SECTION 2: DETAILED DESCRIPTION: Simple explanation of how the system works mechanically or programmatically.
+- SECTION 3: CONCISE CLAIMS: List exactly 3 simple, direct claims.
+Do NOT output a massive generic document. Keep it short, focused, and natural.`,
 };
 
 async function callAgent(

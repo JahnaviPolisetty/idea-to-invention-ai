@@ -29,31 +29,31 @@ export const BlueprintResults = ({ blueprint }: BlueprintResultsProps) => {
 
   const sections: Section[] = [
     {
-      title: "Problem Summary",
-      content: blueprint.problemStatement,
+      title: "Idea Overview",
+      content: blueprint.summary,
       icon: <FileText className="w-5 h-5" />,
       color: "text-primary",
     },
     {
-      title: "Research & Similar Ideas",
-      content: blueprint.research,
-      icon: <Search className="w-5 h-5" />,
+      title: "Problem It Solves",
+      content: blueprint.problemStatement,
+      icon: <CheckCircle className="w-5 h-5" />,
       color: "text-secondary",
     },
     {
-      title: "Feasibility Analysis",
-      content: blueprint.feasibility,
-      icon: <CheckCircle className="w-5 h-5" />,
+      title: "Innovation / Unique Point",
+      content: blueprint.innovation,
+      icon: <Lightbulb className="w-5 h-5" />,
       color: "text-accent",
     },
     {
-      title: "Innovation Opportunities",
-      content: blueprint.innovation,
-      icon: <Lightbulb className="w-5 h-5" />,
+      title: "Feasibility / Practicality",
+      content: blueprint.feasibility,
+      icon: <CheckCircle className="w-5 h-5" />,
       color: "text-primary",
     },
     {
-      title: "Complete Patent Document",
+      title: "Simple Patent-Style Draft",
       content: blueprint.patentDocument,
       icon: <FileSignature className="w-5 h-5" />,
       color: "text-secondary",
@@ -64,8 +64,7 @@ export const BlueprintResults = ({ blueprint }: BlueprintResultsProps) => {
     <div className="space-y-6 animate-slide-in">
       {/* Header */}
       <div className="glass-strong rounded-2xl p-8 border border-primary/20">
-        <h2 className="text-3xl font-bold mb-3 text-primary">{blueprint.title}</h2>
-        <p className="text-lg text-foreground/90">{blueprint.summary}</p>
+        <h2 className="text-3xl font-extrabold text-primary">{blueprint.title}</h2>
       </div>
 
       {/* Sections */}
