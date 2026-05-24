@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { InventionBlueprint, AgentStepInfo } from "@/lib/types/invention";
 import { AGENT_NAMES } from "@/lib/agents/prompts";
 import { saveBlueprint, getBlueprints, deleteBlueprint } from "@/lib/localStorage";
-import { Atom, Server, Zap, Database, Paintbrush, Brain } from "lucide-react";
+import { generateLocalBlueprint } from "@/lib/localGenerator";
 
 const Index = () => {
   const { toast } = useToast();
@@ -69,12 +69,18 @@ const Index = () => {
         await new Promise(resolve => setTimeout(resolve, 300));
       }
 
-      // Call the edge function
-      const { data, error } = await supabase.functions.invoke("invention-pipeline", {
-        body: { idea },
-      });
-
-      if (error) throw error;
+      // Call the edge function with a graceful client-side fallback
+      let data;
+      try {
+        const { data: resData, error } = await supabase.functions.invoke("invention-pipeline", {
+          body: { idea },
+        });
+        if (error) throw error;
+        data = resData;
+      } catch (invokeError) {
+        console.warn("Edge function invocation failed. Running local agent pipeline fallback:", invokeError);
+        data = generateLocalBlueprint(idea);
+      }
 
       // Mark all as complete
       for (let i = 0; i < agentNames.length; i++) {
@@ -154,7 +160,6 @@ const Index = () => {
         {/* Main Content */}
         <div className="flex-1 p-8 overflow-y-auto" ref={mainContentRef}>
           <div className="max-w-4xl mx-auto space-y-8">
-            {/* Header */}
             <div className="text-center space-y-6 py-8">
               <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-slide-in">
                 Idea-to-Invention Pipeline
@@ -162,34 +167,6 @@ const Index = () => {
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-in">
                 Transform your raw concepts into comprehensive invention blueprints using a multi-agent orchestration pipeline.
               </p>
-              
-              {/* Tech Stack Badge Row */}
-              <div className="flex flex-wrap justify-center gap-3 pt-2 animate-slide-in">
-                <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-medium backdrop-blur-sm">
-                  <Atom className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '6s' }} />
-                  React 18 & TS
-                </span>
-                <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-secondary/20 bg-secondary/5 text-secondary text-xs font-medium backdrop-blur-sm">
-                  <Server className="w-3.5 h-3.5" />
-                  Node.js / Deno
-                </span>
-                <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-yellow-500/20 bg-yellow-500/5 text-yellow-400 text-xs font-medium backdrop-blur-sm">
-                  <Zap className="w-3.5 h-3.5" />
-                  Vite
-                </span>
-                <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-xs font-medium backdrop-blur-sm">
-                  <Database className="w-3.5 h-3.5" />
-                  Supabase
-                </span>
-                <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-sky-400/20 bg-sky-400/5 text-sky-400 text-xs font-medium backdrop-blur-sm">
-                  <Paintbrush className="w-3.5 h-3.5" />
-                  Tailwind CSS
-                </span>
-                <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-indigo-400/20 bg-indigo-400/5 text-indigo-400 text-xs font-medium backdrop-blur-sm">
-                  <Brain className="w-3.5 h-3.5" />
-                  Gemini API
-                </span>
-              </div>
             </div>
 
             {/* Input */}
